@@ -1,13 +1,13 @@
 [package]
 name = "bard"
+version = "1.0.0"
 repository = "https://github.com/Ave-Sergeev/Bard"
-version = "0.1.0"
 description = "A library that provides the ability to convert tokens into embeddings, as well as to encode their positions"
 authors = ["Artem Sergeev <...>"]
-edition = "2024"
-license = "MIT"
 keywords = ["embeddings", "positional-encoding"]
 categories = ["encoding", "mathematics"]
+edition = "2024"
+license = "MIT"
 include = [
     "src/**/*.rs",
     "Cargo.toml",
@@ -17,5 +17,6 @@ include = [
 ]
 
 [dependencies]
-ndarray = "0.16.1"
 rand = "0.9.0"
+approx = "0.5.1"
+ndarray = "0.16.1"

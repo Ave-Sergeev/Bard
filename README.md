@@ -27,10 +27,11 @@ The crate has the following dependencies:
 
 1) [rand](https://github.com/rust-random/rand) crate to generate pseudo-random values.
 2) [ndarray](https://github.com/rust-ndarray/ndarray) crate (math) for efficient matrix handling.
-3) ...
+3) [approx](https://github.com/brendanzab/approx) crate to handle approximate comparisons of floating point numbers. Using for tests.
+4) ...
 
 ## Usage
-See [example](/example) for usage.
+See [example](/example/src/main.rs) for usage.
 
 ### P.S.
 
