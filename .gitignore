@@ -7,3 +7,5 @@
 # Rust
 /target
 Cargo.lock
+/example/target
+/example/Cargo.lock

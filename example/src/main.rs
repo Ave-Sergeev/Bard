@@ -1,22 +1,18 @@
-use crate::service::embeddings::Embeddings;
-use crate::service::positional_encoding::PositionalEncoding;
-use std::error::Error;
 
-mod error;
-mod service;
+use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let tokens = vec![5, 6, 3, 8];
     let embedding_dimension = 3;
     let vocab_size = 10;
 
-    let embeddings = Embeddings::new(vocab_size, embedding_dimension);
+    let embeddings = bard::Embeddings::new(vocab_size, embedding_dimension);
     println!("Исходная матрица эмбеддингов:\n{}", embeddings.get_matrix());
 
     let mut token_embeddings = embeddings.tokens_to_embeddings(&tokens)?;
     println!("Эмбеддинги токенов:\n{}", token_embeddings);
 
-    let positional_encoding = PositionalEncoding::new(100, embedding_dimension);
+    let positional_encoding = bard::PositionalEncoding::new(100, embedding_dimension);
     println!(
         "Позиционные кодировки (для данной последовательности): \n {}",
         positional_encoding.for_sequence(tokens.len())?

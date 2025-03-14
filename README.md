@@ -1,67 +1,37 @@
-## Описание
+## Description
 
-Данный проект является вторым шагом (после создания [токенизатора](https://github.com/Ave-Sergeev/Tokenomicon)) на пути к полноценной реализации `llm` на архитектуре `transformer`.
-Он предназначен для преобразования токенов в эмбединги, а так же для кодирования их позиций.
+[Русская версия](README.ru.md)
 
-Добавлена поддержка следующих функций:
+This crate is the second step (after creating [tokenizer](https://github.com/Ave-Sergeev/Tokenomicon)) towards a full
+`llm` implementation on the `transformer` architecture.
+It is designed to convert tokens into embeddings, as well as encode their positions.
 
-- Преобразование токенов в эмбединги - преобразование дискретных идентификаторов токенов в непрерывные векторные
-  представления.
-- Позиционные кодировки - добавление информации о положении к эмбеддингам токенов с помощью синусоидальных функций.
+Glossary:
 
-В проекте используются:
+- Tokenization (segmentation) is the process of breaking text into individual parts (words, characters, etc.)
+- LLM (large language models) is a general-purpose mathematical model designed for a wide range of tasks related to
+  natural language processing.
+- Transformer is a deep neural network architecture introduced in 2017 by researchers from Google. It is designed to
+  process sequences such as natural language text.
+- Embedding is numerical representations of text (token).
+- Positional Encoding is a technique used (e.g. in Transformers) to provide positional information to a model by adding
+  position-dependent signals to word embeddings,
 
-1) [ndarray](https://github.com/rust-ndarray/ndarray) крейт (математический) для эффективной работы с матрицами.
-2) [rand](https://github.com/rust-random/rand) крейт для генерации псевдо-случайных значений.
-3) [thiserror](https://github.com/dtolnay/thiserror) крейт для эргономичной обработки ошибок
-4) ...
+### Implementation details
 
-Глоссарий:
+- The Embeddings structure creates and manages a matrix of token embeddings, where each column represents a token in the
+  dictionary.
+- The PositionalEncoding structure implements the creation and management of position encoding.
 
-- Токенизация (сегментация) — это процесс разбиения текста на отдельные части (слова, символы, и т.п.)
-- LLM (large language models) — это математическая модель общего назначения, предназначенные для широкого спектра задач связанных с обработкой естественных языков.
-- Transformer — это архитектура глубоких нейронных сетей, представленная в 2017 году исследователями из Google. Она предназначена для обработки последовательностей, таких как текст на естественном языке.
-- Embedding — это числовые представления текста (токена).
-- Positional Encoding — это метод, используемый (например в Transformers), для предоставления модели позиционной информации путем добавления зависящих от позиции сигналов к встраиванию слов, что позволяет модели учитывать порядок слов во входной последовательности.
+The crate has the following dependencies:
 
-### Описание Embeddings
+1) [rand](https://github.com/rust-random/rand) crate to generate pseudo-random values.
+2) [ndarray](https://github.com/rust-ndarray/ndarray) crate (math) for efficient matrix handling.
+3) ...
 
-Структура Embeddings управляет матрицей эмбеддингов токенов, где каждый столбец представляет токен в словаре.
-Он обеспечивает:
+## Usage
+See [example](/example) for usage.
 
-### Описание PositionalEncoding
+### P.S.
 
-Структура PositionalEncoding реализует синусоидальное кодирование позиции.
-
-## Локальный запуск
-
-1) Для установки `Rust` на unix подобные системы (MacOS, Linux, ...) - запускаем в терминале команду.
-   По окончании загрузки вы получите последнюю стабильную версию Rust для вашей платформы, а так же последнюю версию
-   Cargo.
-
-```shell
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-2) Для проверки выполните следующую команду в терминале.
-
-```shell
-cargo --version
-```
-
-3) Открываем проект, и запускаем команды.
-
-Проверяет код на возможность компиляции (без запуска).
-
-```shell
-cargo check
-```
-
-Сборка + запуск проекта
-
-```shell
-cargo run
-```
-
-UDP: Если вдруг у вас Windows,
-посмотрите [Инструкцию тут](https://forge.rust-lang.org/infra/other-installation-methods.html)
+Don't forget to leave a ⭐ if you found this project useful.
